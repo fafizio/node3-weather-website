@@ -14,7 +14,7 @@ weatherForm.addEventListener('submit', (e)=>{
     messageTwo.textContent='Loading...'
 
     //Fetch è l'analogo di request per il back-end
-    fetch('http://localhost:5000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
         if(data.error){
             messageTwo.textContent='Errore: '+data.error
