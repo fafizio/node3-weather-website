@@ -1,5 +1,3 @@
-console.log('Client side javascript file is loaded')
-
 //colleghiamo il form con il recupero dei dati dal app.get('weather'..)
 const weatherForm = document.querySelector('form')
 const search=document.querySelector('input')
