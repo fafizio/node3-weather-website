@@ -3,6 +3,7 @@ const weatherForm = document.querySelector('form')
 const search=document.querySelector('input')
 const messageOne=document.querySelector('#message-1')
 const messageTwo=document.querySelector('#message-2')
+const messageThree=document.querySelector('#message-3')
 
 
 weatherForm.addEventListener('submit', (e)=>{
@@ -12,6 +13,7 @@ weatherForm.addEventListener('submit', (e)=>{
 
     messageOne.textContent=''
     messageTwo.textContent='Loading...'
+    messageThree.textContent=''
 
     //Fetch è l'analogo di request per il back-end
     fetch('/weather?address='+location).then((response)=>{
@@ -21,6 +23,7 @@ weatherForm.addEventListener('submit', (e)=>{
         } else {            
             messageOne.textContent='Location: '+data.location
             messageTwo.textContent='Forecast: '+data.forecast
+            messageThree.textContent='Temperatura Minima: '+data.minTemperature+' Temperatura massima:'+data.maxTemperature
         }
     })
 })

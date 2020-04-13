@@ -10,13 +10,13 @@ const forecast = (latitude, longitude, callback)=>{
         } else if (body.error){
             callback ('Errore:'+body.error, undefined)
         } else {
-            callback(undefined, 'Attualmente vi sono '
-        +body.currently.temperature+
-        ' gradi. Vi è lo '
-        +body.currently.precipProbability+
-        ' % di probabilità di pioggia. In pratica '+body.currently.summary)
-        }
-    })
+            callback(undefined, {
+                forecast: 'Attualmente vi sono '+body.currently.temperature+' gradi. Vi è lo '+body.currently.precipProbability+' % di probabilità di pioggia. In pratica '+body.currently.summary,
+                minTemperature: body.daily.data[0].temperatureMin,
+                maxTemperature: body.daily.data[0].temperatureMax
+        })
+    }
+})
 }
 
 module.exports=forecast
